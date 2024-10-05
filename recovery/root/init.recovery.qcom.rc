@@ -59,6 +59,10 @@ on fs
     export ANDROID_ROOT /system_root
 
 on late-fs
+    # vaultkeeper
+    mkdir /dev/socket/vaultkeeper 0770 root root
+    start vaultkeeper
+    start vaultkeeper_hal
 
     # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.${ro.boot.hardware.platform} --late
@@ -100,4 +104,18 @@ service vendor.keymint-default /vendor/bin/hw/android.hardware.security.keymint-
     class early_hal
     user root
     group root drmrpc
+    seclabel u:r:recovery:s0
+
+# VaultKeeper
+service vaultkeeper /vendor/bin/vaultkeeperd
+    class core
+    user root
+    group root
+    disabled
+
+service vaultkeeper_hal /vendor/bin/vendor.samsung.hardware.security.vaultkeeper@2.0-service
+    class early_hal
+    user root
+    group root
+    disabled
     seclabel u:r:recovery:s0
