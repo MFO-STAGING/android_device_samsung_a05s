@@ -1,7 +1,7 @@
 # Android device tree for samsung SM-A057F (a05s) A057FXXS5CXH9
 
 # Clone
-    git clone https://github.com/MFO-STAGING/android_device_samsung_a05s.git -b twrp-14 device/samsung/a05s
+    git clone https://github.com/MFO-STAGING/android_device_samsung_a05s.git -b staging device/samsung/a05s
 
 # Build
     export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_a05s-eng; mka recoveryimage
