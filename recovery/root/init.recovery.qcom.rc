@@ -35,10 +35,13 @@ on init
     setprop prepdecrypt.setpatch true
     setprop prepdecrypt.loglevel 2
 
+    start keystore2
     start vendor.qseecomd 
     start keymaster-4-0 
     start vendor.gatekeeper-1-0
     start vendor.keymint-default
+    start vaultkeeper
+    start vaultkeeper_hal
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
@@ -61,8 +64,6 @@ on fs
 on late-fs
     # vaultkeeper
     mkdir /dev/socket/vaultkeeper 0770 root root
-    start vaultkeeper
-    start vaultkeeper_hal
 
     # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.${ro.boot.hardware.platform} --late
