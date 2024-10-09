@@ -120,3 +120,10 @@ service vaultkeeper_hal /vendor/bin/vendor.samsung.hardware.security.vaultkeeper
     group root
     disabled
     seclabel u:r:recovery:s0
+
+service keystore2 /system/bin/keystore2 /data/misc/keystore
+    class early_hal
+    user keystore
+    group keystore readproc log 5666 5678
+    task_profiles ProcessCapacityHigh
+    seclabel u:r:recovery:s0
