@@ -38,6 +38,7 @@ on init
     start vendor.qseecomd 
     start keymaster-4-0 
     start vendor.gatekeeper-1-0
+    start gatekeeperd
     start vendor.keymint-default
     start vaultkeeper
     start vaultkeeper_hal
@@ -76,6 +77,8 @@ on post-fs
 on post-fs-data
     mkdir /data/vendor/keymaster 0775 root root
     mkdir /data/vendor/gatekeeper 0770 root root
+    mkdir /efs/gatekeeper 0775 root root
+    restorecon -R /efs/gatekeeper
 
 service vendor.health-recovery /vendor/bin/hw/android.hardware.health-service.qti_recovery
     class hal
@@ -126,4 +129,11 @@ service keystore2 /system/bin/keystore2 /data/misc/keystore
     user keystore
     group keystore readproc log 5666 5678
     task_profiles ProcessCapacityHigh
+    seclabel u:r:recovery:s0
+
+service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeper
+    class late_start
+    user root
+    group root 5678 5666
+    task_profiles ServiceCapacityLow
     seclabel u:r:recovery:s0
