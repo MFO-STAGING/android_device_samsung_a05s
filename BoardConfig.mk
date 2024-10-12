@@ -141,7 +141,7 @@ PLATFORM_VERSION := 14
 #TW_INCLUDE_CRYPTO_FBE := false
 TW_FORCE_KEYMASTER_VER := true
 BOARD_USES_METADATA_PARTITION := true
-#BOARD_USES_QCOM_FBE_DECRYPTION := true
+BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
@@ -163,7 +163,7 @@ TW_USE_NEW_MINADBD := true
 TW_MAX_BRIGHTNESS := 200
 TW_LOAD_VENDOR_MODULES := true
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/lib/modules)\")
-TW_DEVICE_VERSION := MrFluffyOven_5_S5
+TW_DEVICE_VERSION := MrFluffyOven_14_S5
 
 # Logging
 TARGET_USES_LOGD := true
