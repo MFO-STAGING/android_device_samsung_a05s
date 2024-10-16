@@ -132,6 +132,7 @@
     </hal>
     <hal format="hidl" optional="false">
         <name>android.hidl.token</name>
+        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>ITokenManager</name>
