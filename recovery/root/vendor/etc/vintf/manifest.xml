@@ -131,13 +131,24 @@
         <fqname>@1.1::IOffloadControl/default</fqname>
     </hal>
     <hal format="hidl" optional="false">
+        <name>android.hidl.allocator</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl" optional="false">
+        <name>android.hidl.manager</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl" optional="false">
+        <name>android.hidl.memory</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl" optional="false">
         <name>android.hidl.token</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
-        <interface>
-            <name>ITokenManager</name>
-            <instance>default</instance>
-        </interface>
     </hal>
     <hal format="hidl">
         <name>com.fingerprints.extension</name>
